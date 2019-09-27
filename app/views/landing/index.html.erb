@@ -1,8 +1,19 @@
-<ul>
+<h1>Listing Articles</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+ 
   <% @articles.each do |article| %>
-    <li>
-      <%= article.title %><br />
-      <%= article.content %>
-    </li>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.content %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
+<br>
+<%= link_to "New Article", "articles/new" %>
