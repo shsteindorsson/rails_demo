@@ -4,12 +4,12 @@ Feature: List articles on landing page
   I would like registered users to log in
 
   Background: 
-  Given the following article exist
+  Given following model exist
+    | email         | password |
+    | dude@mail.com | password |
+  And following article exist
     | title                 | content                           |
     | Learn Rails 5         | Build awesome rails applications  |
-  And the following users exists
-    | user  | email         | password |
-    | dude  | dude@mail.com | password |
   And I am on the landing page
 
   Scenario: Logging in and viewing a list of articles

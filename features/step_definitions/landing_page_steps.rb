@@ -31,3 +31,14 @@ end
 Then("I should be on {string} page") do |string|
   expect(page).to have_content string
 end
+
+Given("following model exist") do |table|
+  table.hashes.each do |model_hash|
+    FactoryBot.create(:model, model_hash)
+  end
+end
+
+Given("following article exist") do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  pending # Write code here that turns the phrase above into concrete actions
+end
