@@ -19,3 +19,8 @@ Feature: Edit articles
     Then I should see "Learning Rails 5"
     And I click "Edit" link
     Then I should see "Edit article"
+    And I fill in "Title" with "Learning Rails 6"
+    And I fill in "Content" with "Excited about Rails 6?"
+    And I click "Update Article" button
+    And I click "Back" link
+    Then I should see "Learning Rails 6"
