@@ -39,6 +39,7 @@ Given("following model exist") do |table|
 end
 
 Given("following article exist") do |table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  table.hashes.each do |article_hash|
+    FactoryBot.create(:article, article_hash)
+  end
 end
