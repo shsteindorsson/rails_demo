@@ -1,5 +1,5 @@
 When(/^I am on the landing page$/) do
-  visit root_path
+  visit(root_path)
 end
 
 Then(/^I should see "([^"]*)"$/) do |content|
@@ -13,15 +13,15 @@ Given(/^the following articles exists$/) do |table|
 end
 
 Given("I visit the {string} page") do |string|
-  visit root_path
+  visit(root_path)
 end
 
 When("I click {string} link") do |string|
   click_link(string)
 end
 
-When("I fill in {string} with {string}") do |string, string2|
-  fill_in(string, :with => string2)
+When("I fill in {string} with {string}") do |element, content|
+  fill_in(element, :with => content)
 end
 
 When("I click {string} button") do |string|
