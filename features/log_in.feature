@@ -16,6 +16,7 @@ Feature: List articles on landing page
     When I click "Show" link 
     And I fill in "Email" with "dude@mail.com"
     And I fill in "Password" with "password"
-    Then I should see "You have successfully signed in"
+    And I click "Log in" button
+    Then I should see "Signed in successfully."
     And I should see "Learn Rails 5"
     And I should see "Build awesome rails applications"
