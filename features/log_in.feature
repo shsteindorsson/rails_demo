@@ -4,15 +4,15 @@ Feature: List articles on landing page
   I would like registered users to log in
 
   Background: 
-  Given following model exist
-    | email         | password |
-    | dude@mail.com | password |
-  And following article exist
-    | title                 | content                           |
-    | Learn Rails 5         | Build awesome rails applications  |
-  And I am on the landing page
+    Given following model exist
+      | email         | password |
+      | dude@mail.com | password |
+    And following article exist
+      | title                 | content                           |
+      | Learn Rails 5         | Build awesome rails applications  |
+    And I am on the landing page
 
-  Scenario: Logging in and viewing a list of articles
+  Scenario: Logging in and viewing a list of articles [Happy path]
     When I click "Show" link 
     And I fill in "Email" with "dude@mail.com"
     And I fill in "Password" with "password"
@@ -20,3 +20,11 @@ Feature: List articles on landing page
     Then I should see "Signed in successfully."
     And I should see "Learn Rails 5"
     And I should see "Build awesome rails applications"
+
+  Scenario: Logging in and viewing a list of articles [Sad path]
+    When I click "Show" link 
+    And I fill in "Email" with "dude@mail.com"
+    And I fill in "Password" with "passnerd"
+    And I click "Log in" button
+    Then I should not see "Signed in successfully."
+    And I should see "Log in"
