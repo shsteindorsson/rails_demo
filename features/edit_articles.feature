@@ -4,8 +4,14 @@ Feature: Edit articles
   I would like to be able to edit my articles
 
   Background:
-    Given I visit the "landing" page
+    Given following model exist
+      | email         | password |
+      | dude@mail.com | password |
+    And I visit the "landing" page
     And I click "New Article" link
+    And I fill in "Email" with "dude@mail.com"
+    And I fill in "Password" with "password"
+    And I click "Log in" button
     And I fill in "Title" with "Learning Rails 5"
     And I fill in "Content" with "Excited about learning a new framework"
     And I click "Save Article" button

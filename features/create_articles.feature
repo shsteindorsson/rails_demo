@@ -4,8 +4,14 @@ Feature: Create articles
   I would like to be able to create articles
 
   Background:
-    Given I visit the "landing" page
-    When I click "New Article" link
+    Given following model exist
+      | email         | password |
+      | dude@mail.com | password |
+    And I visit the "landing" page
+    And I click "New Article" link
+    And I fill in "Email" with "dude@mail.com"
+    And I fill in "Password" with "password"
+    Then I click "Log in" button
 
   Scenario: Successfully create an article [Happy Path]
     When I fill in "Title" with "Learning Rails 5"
